@@ -1,0 +1,9 @@
+from django.db import models
+
+{% autoescape off %}
+class {{ model_name }}(models.Model):
+    {{ fields  }}
+
+    def __str__(self) -> str:
+        return "{{ model_name }}"
+{% endautoescape %}
