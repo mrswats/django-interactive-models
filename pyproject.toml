@@ -22,7 +22,7 @@ classifiers = [
     "Framework :: Django"
 ]
  dependencies = [
-    "Django>=3.2.14"
+    "Django>=3.2.15"
  ]
 
 [project.optional-dependencies]
