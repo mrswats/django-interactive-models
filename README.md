@@ -54,3 +54,17 @@ This is the current list of accepted types and their mappings
 - time -> TimeField,
 - url -> URLField,
 - uuid -> UUIDField,
+
+## Running tests locally
+
+Install test dependencies with
+
+```console
+pip install ".[test]"
+```
+
+Then, run tests using pytest with:
+
+```console
+pytest -v
+```
