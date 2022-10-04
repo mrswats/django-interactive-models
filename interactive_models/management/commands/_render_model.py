@@ -3,10 +3,14 @@ from typing import Dict, Optional
 from django.template import loader
 
 TEMPLATE_NAME = "model_template.py.template"
+NEW_LINE = "\n"
+INDENT = " " * 4
+
+CLASS_BLOCK = NEW_LINE + INDENT
 
 
 def render_model_file(raw_fields: Dict[str, Optional[str]], model_name: str) -> str:
-    fields = ("\n" + " " * 4).join(
+    fields = (CLASS_BLOCK).join(
         f"{key} = models.{value}()" for key, value in raw_fields.items() if value is not None
     )
 
