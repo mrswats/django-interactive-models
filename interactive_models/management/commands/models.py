@@ -3,6 +3,7 @@ from typing import Any
 
 from django.core.management.base import BaseCommand, CommandError, CommandParser
 
+from ._check_models_file import check_models_file
 from ._parse_fields import parse_fields
 from ._render_model import render_model_file
 
@@ -46,7 +47,7 @@ class Command(BaseCommand):
             )
             raise CommandError(error_msg)
 
-        if not options["override"] and os.path.exists(models_path):
+        if not options["override"] and check_models_file(models_path):
             error_msg = (
                 f"Not overriding '{models_path}'\nuse `--override` to override this behavior"
             )
