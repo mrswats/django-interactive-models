@@ -32,4 +32,7 @@ db_fields = {
 
 def parse_fields(raw_fields: str) -> Dict[str, Optional[str]]:
     fields_dict = dict(field.split(":") for field in raw_fields)
-    return {field_name: db_fields.get(db_field) for field_name, db_field in fields_dict.items()}
+    return {
+        field_name.strip(): db_fields.get(db_field.strip())
+        for field_name, db_field in fields_dict.items()
+    }

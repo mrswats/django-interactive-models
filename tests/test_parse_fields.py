@@ -6,25 +6,38 @@ from interactive_models.management.commands._parse_fields import db_fields, pars
 test_fields = ["body:text", "number_of_pages:int", "book_url:url"]
 
 all_raw_fields = [
-    "auto:auto",
-    "bool:bool",
-    "char:char",
-    "date:date",
-    "datetime:datetime",
-    "email:email",
-    "float:float",
-    "int:int",
-    "slug:slug",
-    "text:text",
-    "time:time",
-    "url:url",
-    "uuid:uuid",
+    "auto : auto",
+    "bigauto : bigauto",
+    "bigint : bigint",
+    "binary : binary",
+    "bool : bool",
+    "char : char",
+    "date : date",
+    "datetime : datetime",
+    "decimal : decimal",
+    "duration : duration",
+    "email : email",
+    "file : file",
+    "filepath : filepath",
+    "float : float",
+    "genericip : genericip",
+    "image : image",
+    "int : int",
+    "nullbool : nullbool",
+    "positiveint : positiveint",
+    "positivesmallint : positivesmallint",
+    "slug : slug",
+    "smallint : smallint",
+    "text : text",
+    "time : time",
+    "url : url",
+    "uuid : uuid",
 ]
 
 
 @pytest.mark.parametrize("django_field", db_fields.values())
 def test_db_fields_exist_in_django(django_field):
-    assert hasattr(fields, django_field)
+    assert hasattr(fields, django_field) or hasattr(fields.files, django_field)
 
 
 def test_parse_fields_with_empty_input():
