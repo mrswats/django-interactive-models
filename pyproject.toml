@@ -1,0 +1,102 @@
+[project]
+name = "django-interactive-models"
+version = "0.1.0"
+description = "a CLI Tool to create django models interactively"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [
+    {name = "Ferran Jovell", email = "ferran.jovell+gh@gmail.com"}
+]
+keywords = ["django"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+    "Environment :: Web Environment",
+    "Framework :: Django"
+]
+ dependencies = [
+    "Django<=3.2.14"
+ ]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "mypy<=0.970",
+    "django-stubs[compatible-mypy]",
+]
+
+[build-system]
+requires = ["setuptools>=63.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+
+[tool.black]
+line-length = 99
+target_version = ["py38"]
+skip-string-normalization = false
+include = "\\.pyi?$"
+exclude = """
+(
+  /(
+      \\.eggs         # exclude a few common directories in the
+    | \\.git          # root of the project
+    | \\.hg
+    | \\.mypy_cache
+    | \\.tox
+    | \\.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+"""
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+files = "interactive_models"
+namespace_packages = true
+explicit_package_bases = true
+show_error_codes = true
+strict = true
+enable_error_code = [
+    "ignore-without-code",
+    "redundant-expr",
+    "truthy-bool",
+]
+exclude = [
+    "tests/*",
+    "manage.py",
+]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"
+
+[tool.coverage.run]
+source = ["."]
+branch = true
+omit = [
+    "**/tests/*",
+    "manage.py",
+]
+
+[tool.coverage.report]
+skip_empty = true
+fail_under = 90
+
+[tool.coverage.html]
+directory = "artifacts/htmlcov/"
