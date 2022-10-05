@@ -53,7 +53,7 @@ class Command(BaseCommand):
             )
             raise CommandError(error_msg)
 
-        fields = parse_fields(options["model_fields"][0].split(" "))
+        fields = parse_fields(options["model_fields"])
         file_contents = render_model_file(fields, model_name)
 
         with open(f"{app_name}/models.py", "w") as fileobj:
