@@ -34,6 +34,9 @@ test = [
     "django-stubs[compatible-mypy]",
 ]
 
+[tool.setuptools.package-data]
+interactive_models = ["templates/*"]
+
 [build-system]
 requires = ["setuptools>=63.0"]
 build-backend = "setuptools.build_meta"
