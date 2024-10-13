@@ -36,8 +36,7 @@ jobs:
           pip install pre-commit
           pre-commit install-hooks
 
-      - name: Lint with flake8
-        run: pre-commit run --all-files flake8
+      - uses: pre-commit/action@v3.0.1
 
       - name: Lint Mypy
         run: |
