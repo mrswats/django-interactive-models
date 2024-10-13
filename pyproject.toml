@@ -3,7 +3,7 @@ name = "django-interactive-models"
 version = "0.2.3"
 description = "a CLI Tool to create django models interactively"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = { file = "LICENSE" }
 authors = [
     {name = "Ferran Jovell", email = "ferran.jovell+gh@gmail.com"}
