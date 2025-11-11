@@ -1,7 +1,8 @@
 import pytest
 from django.db.models import fields
 
-from interactive_models.management.commands._parse_fields import db_fields, parse_fields
+from interactive_models.management.commands._parse_fields import db_fields
+from interactive_models.management.commands._parse_fields import parse_fields
 
 test_fields = ["body:text", "number_of_pages:int", "book_url:url"]
 
