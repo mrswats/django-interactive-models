@@ -1,7 +1,9 @@
 import os
 from typing import Any
 
-from django.core.management.base import BaseCommand, CommandError, CommandParser
+from django.core.management.base import BaseCommand
+from django.core.management.base import CommandError
+from django.core.management.base import CommandParser
 
 from ._check_models_file import check_models_file
 from ._parse_fields import parse_fields

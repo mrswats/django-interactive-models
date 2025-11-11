@@ -9,19 +9,34 @@ repos:
       - id: check-added-large-files
       - id: check-merge-conflict
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 25.9.0
+    rev: 25.11.0
     hooks:
       - id: black
-  - repo: https://github.com/pycqa/isort
-    rev: 7.0.0
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.3.1
     hooks:
-      - id: isort
-        name: isort
+      - id: autoflake
+        args:
+          - -r
+          - -i
+          - --remove-all-unused-imports
+          - --remove-duplicate-keys
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v3.16.0
+    hooks:
+      - id: reorder-python-imports
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.0
+    rev: v3.21.1
     hooks:
       - id: pyupgrade
         args: ["--py39-plus"]
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: "1.29.1"
+    hooks:
+      - id: django-upgrade
+        args:
+          - --target-version
+          - "5.2"
   - repo: https://github.com/PyCQA/flake8
     rev: 7.3.0
     hooks:
@@ -31,6 +46,6 @@ repos:
           - flake8-bugbear
           - flake8-builtins
           - flake8-comprehensions
-          - flake8-isort
           - flake8-print
           - flake8-variables-names
+          - flake8-django
