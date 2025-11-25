@@ -21,12 +21,12 @@ repos:
           - -i
           - --remove-all-unused-imports
           - --remove-duplicate-keys
-  - repo: https://github.com/asottile/reorder_python_imports
+  - repo: https://github.com/asottile/reorder-python-imports
     rev: v3.16.0
     hooks:
       - id: reorder-python-imports
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.1
+    rev: v3.21.2
     hooks:
       - id: pyupgrade
         args: ["--py39-plus"]
