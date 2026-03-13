@@ -1,5 +1,3 @@
-from typing import Optional
-
 db_fields = {
     "auto": "AutoField",
     "bool": "BooleanField",
@@ -17,6 +15,6 @@ db_fields = {
 }
 
 
-def parse_fields(raw_fields: str) -> dict[str, Optional[str]]:
+def parse_fields(raw_fields: str) -> dict[str, str | None]:
     fields_dict = dict(field.split(":") for field in raw_fields)
     return {field_name: db_fields.get(db_field) for field_name, db_field in fields_dict.items()}
