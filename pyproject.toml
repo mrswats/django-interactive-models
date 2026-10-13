@@ -1,14 +1,15 @@
 [project]
 name = "django-interactive-models"
-version = "0.3.0"
+version = "0.4.0"
 description = "a CLI Tool to create django models interactively"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { file = "LICENSE" }
 authors = [
-    {name = "Ferran Jovell", email = "ferran.jovell+gh@gmail.com"}
+    { name = "Ferran Jovell", email = "ferran.jovell+gh@gmail.com" },
 ]
-keywords = ["django"]
+keywords = [
+    "django",
+]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -21,11 +22,14 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Topic :: Utilities",
     "Environment :: Web Environment",
-    "Framework :: Django"
+    "Framework :: Django",
 ]
- dependencies = [
-    "Django>=5.2"
- ]
+dependencies = [
+    "Django>=5.2",
+]
+
+[project.license]
+file = "LICENSE"
 
 [project.optional-dependencies]
 test = [
@@ -37,20 +41,18 @@ test = [
 ]
 
 [tool.setuptools.package-data]
-interactive_models = ["templates/*"]
-
-[build-system]
-requires = [
-    "setuptools",
+interactive_models = [
+    "templates/*",
 ]
-build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"
 
 [tool.black]
 line-length = 99
-target_version = ["py310"]
+target_version = [
+    "py311",
+]
 skip-string-normalization = false
 
 [tool.mypy]
@@ -76,7 +78,9 @@ exclude = [
 django_settings_module = "tests.settings"
 
 [tool.coverage.run]
-source = ["."]
+source = [
+    ".",
+]
 branch = true
 omit = [
     "**/tests/*",
@@ -89,3 +93,9 @@ fail_under = 90
 
 [tool.coverage.html]
 directory = "artifacts/htmlcov/"
+
+[build-system]
+requires = [
+    "setuptools",
+]
+build-backend = "setuptools.build_meta"
